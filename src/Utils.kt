@@ -3,6 +3,11 @@ import java.security.MessageDigest
 import kotlin.io.path.Path
 import kotlin.io.path.readLines
 
+data class Point(val x: Long, val y: Long) {
+
+    constructor(x: Int, y: Int) : this(x.toLong(), y.toLong())
+}
+
 /**
  * Reads lines from the given input txt file.
  */
@@ -26,8 +31,8 @@ abstract class Day(private val number: String, private val testResultPart1: Long
 
     fun solve() {
         // test if implementation meets criteria from the description, like:
-        val testInput = readInput("Day${number}_test")
-        val input = readInput("Day${number}")
+        val testInput = readInput("res/Day${number}_test")
+        val input = readInput("res/Day${number}")
         testResultPart1?.let {
             check(part1(testInput) == it)
         }
